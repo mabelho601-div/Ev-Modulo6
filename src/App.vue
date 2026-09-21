@@ -1,30 +1,48 @@
+<script setup>
+import SitioHeader from './components/SitioHeader.vue'
+import SitioFooter from './components/SitioFooter.vue'
+</script>
+
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="app-layout">
+    <SitioHeader />
+
+    <main class="contenedor-principal">
+      <router-view />
+    </main>
+
+    <SitioFooter />
+  </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #334155;
 }
 
-nav {
-  padding: 30px;
+.app-layout {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.contenedor-principal {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+@media (max-width: 768px) {
+  .contenedor-principal {
+    padding: 1rem;
+  }
 }
 </style>
